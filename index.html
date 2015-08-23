@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Early Future</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Oswald|Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+
+        /*http://paletton.com/#uid=43R0u0kllllt4clpcgQhupQdBul*/
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        i {
+            font-size: 10px !important;
+            margin: 1%;
+        }
+
+        .wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /*text-align: center;*/
+            filter: blur(100px);
+
+        }
+
+        .topBar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 40px;
+            background-color: rgb(27, 220, 255);
+            z-index: 3;
+            -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .logo {
+            width: 20%;
+            height: 40px;
+            position: relative;
+            margin-left: 20px;
+            font-family: Oswald;
+            font-size: 25px;
+            color: #000;
+            float: left;
+        }
+
+        .tab {
+            width: auto;
+            height: 40px;
+            text-align: center;
+            position: relative;
+            font-family: Oswald;
+            font-size: 20px;
+            color: #000;
+            float: right;
+            line-height: 40px;
+            vertical-align: middle;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .selected {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .large {
+            font-size: 30px;
+        }
+
+        .largetop {
+            font-size: 40px;
+        }
+
+        .top {
+            background: url("https://newevolutiondesigns.com/images/freebies/black-white-background-3.jpg") no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            vertical-align: middle;
+            z-index: 1;
+        }
+
+        .topOverlay {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(219, 219, 219, 0.51);
+            vertical-align: middle;
+            z-index: 2;
+        }
+
+        .imageContainer {
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .topContainer {
+            padding-left: 15%;
+            padding-right: 15%;
+            height: auto;
+            margin: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        .description {
+            width: 100%;
+            text-align: center;
+            font-size: 60px;
+            font-family: 'Lato', sans-serif;
+            color: #000;
+        }
+
+        .button {
+            width: 300px;
+            border: 2px solid black;
+            font-family: 'Lato', sans-serif;
+            font-size: 30px !important;
+            margin: 0 auto;
+            background-color: #CE965D;
+        }
+
+        .innerContent {
+            position: relative;
+            padding-left: 15%;
+            padding-right: 15%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            height: 500px;
+        }
+
+        .bold {
+            font-size: 45px;
+            color: rgb(19, 137, 162);
+        }
+
+        .odd {
+            background-color:rgba(219, 219, 219, 0.3)        }
+
+        .even {
+            background-color:rgba(219, 219, 219, 0.3)        }
+
+        .container {
+            width: 100%;
+        }
+
+        .title {
+            float: left;
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            font-size: 70px;
+            width: 100%;
+            vertical-align: middle;
+            text-align: left;
+            position: relative;
+            display: block;
+            margin-bottom: 5%;
+            border-bottom: 5px solid rgb(27, 220, 255);
+        }
+
+        .innerContainer {
+            position: relative;
+            display: block;
+            width: 100%;
+            float: left;
+            text-align: center;
+        }
+
+        .wideImage {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .imageOverlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(103, 103, 103, 0.75);
+        }
+
+        .imageOverlayText {
+            position: absolute;
+            font-size: 85px;
+            font-weight: bold;
+            width: 100%;
+            letter-spacing: 6px;
+            top: 30%;
+            color: rgb(27, 220, 255);
+        }
+
+        .downArrow {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            bottom: 10px;
+            left: 48%;
+        }
+
+        .lineHolder {
+            width: 100%;
+            height: 200px;
+            position: relative;
+        }
+
+        .lineLeft {
+            width: 50%;
+            position: relative;
+            float: left;
+            height: 100%;
+            text-align: center;
+
+        }
+
+        .lineRight{
+            width: 40%;
+            float: right;
+            position: relative;
+            height: 100%;
+        }
+
+        .splitText {
+
+        }
+
+        .aboutImage {
+            display: inline-block;
+            vertical-align: middle;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        .visionImage {
+            border-radius: 50%;
+            border: 2px solid #000;
+            height: 150px;
+            max-width: 100%;
+        }
+
+        .catapultImage {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 100%;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        .halfText {
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 50%;
+            margin-left: 3%;
+        }
+
+        .fullText {
+            font-family: 'Lato', sans-serif;
+            font-size: 45px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        .centerAlign {
+            text-align: center;
+        }
+
+        .leftAlign {
+            text-align: left;
+        }
+
+        .bottom {
+            text-align: center;
+            width: 100%;
+            background-color: #b1b1b1;
+            height: 80px;
+        }
+
+        .bottomText {
+            font-family: 'Oswald', sans-serif;
+            height: 80px;
+            font-size: 20px;
+            line-height: 80px;
+            vertical-align: middle;
+        }
+
+        .verticalCenter {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+
+    <script>
+
+        var height = ($(window).height());
+        var divHeight = 600;
+        var start = height - divHeight / 2;
+        var selectedTab;
+
+        $(window).scroll(checkScroll);
+
+        function checkScroll() {
+            var scroll = $(window).scrollTop();
+            if (scroll <= start) {
+                if (selectedTab != "top") {
+                    selectedTab = "top"
+                    $(".tab").removeClass("selected");
+                }
+
+            }
+            else if (scroll > start && scroll <= start + divHeight) {
+                if (selectedTab != "about") {
+                    selectedTab = "about";
+                    $(".tab").removeClass("selected");
+                    $("#about").addClass("selected")
+                }
+            }
+            else if (scroll > start + divHeight && scroll <= start + 2 * divHeight) {
+                if (selectedTab != "vision") {
+                    selectedTab = "vision";
+                    $(".tab").removeClass("selected");
+                    $("#vision").addClass("selected")
+                }
+            }
+            else if (scroll > start + 2 * divHeight && scroll <= start + 3 * divHeight) {
+                if (selectedTab != "catapult") {
+                    selectedTab = "catapult";
+                    $(".tab").removeClass("selected");
+                    $("#catapult").addClass("selected")
+                }
+            }
+            else if (scroll > start + 3 * divHeight && scroll <= start + 4 * divHeight) {
+                if (selectedTab != "partners") {
+                    selectedTab = "partners";
+                    $(".tab").removeClass("selected");
+                    $("#partners").addClass("selected")
+                }
+            }
+            else if (scroll > start + 4 * divHeight && scroll <= start + 5 * divHeight) {
+                if (selectedTab != "news") {
+                    selectedTab = "news";
+                    $(".tab").removeClass("selected");
+                    $("#news").addClass("selected")
+                }
+            }
+            else if (scroll > start + 5 * divHeight && scroll <= start + 6 * divHeight) {
+                if (selectedTab != "contact") {
+                    selectedTab = "contact";
+                    $(".tab").removeClass("selected");
+                    $("#contact").addClass("selected")
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="wrap">
+
+    <div class="topBar">
+        <div class="logo">Early Future</div>
+        <div class="tab" id="contact">Contact Us</div>
+        <div class="tab" id="news">News</div>
+        <div class="tab" id="partners">Partners</div>
+        <div class="tab" id="catapult">Catapult</div>
+        <div class="tab" id="vision">Vision</div>
+        <div class="tab" id="about">About Us</div>
+    </div>
+    <!--top-->
+    <div class="top">
+        <div class="topOverlay">
+            <div class="topContainer">
+                <div class="description">
+                    Let's <br> #EmpowerTheChange
+                </div>
+                <!--<div class="description">-->
+                <!--Early Future is a non-profit organization that partners with companies-->
+                <!--to bring about designed office visits to underprivileged youth.-->
+                <!--</div>-->
+                <!--<br>-->
+
+                <!--<div class="button">Why Get Involved With Early Future...</div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="about innerContent even">
+                <div class="title centerAlign verticalCenter">Underprivileged aren't succeed in education and beyond
+                </div>
+                <!--<div class="innerContainer">-->
+
+                <!--<div class="fullText centerAlign">We want underprivileged to succeed in education and beyond</div>-->
+
+                <!--&lt;!&ndash;<iframe src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211073&authkey=AG4VzXWWJ4VIYpM" class="aboutImage" scrolling="no"></iframe>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<img class="aboutImage" src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211073&authkey=AG4VzXWWJ4VIYpM">&ndash;&gt;&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="halfText leftAlign">When I was accepted into the University of Toronto Faculty of&ndash;&gt;-->
+                <!--&lt;!&ndash;Engineering,&ndash;&gt;-->
+                <!--&lt;!&ndash;I was at a loss for words. Looking back at where I came from; the poverty and the crime&ndash;&gt;-->
+                <!--&lt;!&ndash;really do impact the path some youth take. From a young age, I always told myself that one&ndash;&gt;-->
+                <!--&lt;!&ndash;day I am going to help change this toxic cycle of low-income youth not reaching their full&ndash;&gt;-->
+                <!--&lt;!&ndash;potential.&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+
+            </div>
+
+            <div class="imageContainer">
+                <div class="imageOverlay"><div class="imageOverlayText"> Why? </div>
+                    <img class="downArrow" src="https://cdn3.iconfinder.com/data/icons/lightly-icons/30/652778-double-chevron-down-480.png">
+                </div>
+                <img src="people.jpg" class="wideImage">
+            </div>
+            <div class="lineHolder">
+                <div class="lineLeft"><div class="splitText"> Lack of Advocates (eg. Positive Academic Role Model)</div></div>
+                <div class="lineRight"><div class="splitText"> Lack of Knowledge of Beneficial Practices (eg. Knowing to Network in University)</div></div> </div>
+            <div class="vision innerContent odd">
+                <div class="title">What We Do</div>
+                <div class="innerContainer">
+                    <div class="fullText centerAlign largetop"> We partner with companies in varying industries to
+                        provide
+                        office
+                        visits to underprivileged youth.
+                    </div>
+                    <!--<div class="fullText centerAlign">At Early Future, our mission is to empower underprivileged-->
+                    <!--youth so that they achieve success with education. <br>-->
+                    <!--&lt;!&ndash;<img class="visionImage" src="vision.jpg"> <br>&ndash;&gt;-->
+                    <!--<iframe src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211074&authkey=AH05Uwvr1XgLJoI"-->
+                    <!--class="visionImage" scrolling="no"></iframe>-->
+                    <!--<br>-->
+                    <!--We believe that by showing them how far they can reach with education as-->
+                    <!--well as providing them with the necessary knowledge of practices that will-->
+                    <!--benefit their development and course to career path, we will help keep youth-->
+                    <!--off the street, set them up for to succeed within post-secondary and ultimately-->
+                    <!--reduce poverty-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="catapult innerContent even">
+                <div class="title">Why Get Involved</div>
+                <div class="fullText centerAlign largetop">
+                    46% of high school graduates from the lower income quartile pursue a higher education<br>
+                    + <br>
+                    1 in 7 graduates fit this mold <br>
+                    = <br>
+                    <b class="bold">Significant Problem</b>
+                </div>
+
+                <!--<img class="catapultImage" src="catapult.jpg">-->
+                <!--<iframe src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211075&authkey=AN8AOHM535SubQA"-->
+                <!--class="catapultImage" scrolling="no"></iframe>-->
+
+                <!--<div class="halfText leftAlign">Provide youth with: <br>-->
+                <!--<ul>-->
+                <!--<li>role models</li>-->
+                <!--<li>key industry insights</li>-->
+                <!--<li>job profiles, interpersonal skills</li>-->
+                <!--<li>connections</li>-->
+                <!--<li>glimpse possible career paths</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<br>-->
+
+                <!--<div class="fullText leftAlign">-->
+                <!--<ul>-->
+                <!--<li>Your company will host a certain amount of youth at your chosen-->
+                <!--office.-->
+                <!--This visit will be designed by your company and our executives to empower and educate-->
+                <!--the youth.-->
+                <!--</li>-->
+                <!--<li>The youth will be launched forward with the tools to be successful-->
+                <!--and-->
+                <!--most importantly, a belief that they can achieve greatness with an education; this is-->
+                <!--why we-->
+                <!--used the-->
+                <!--name <b>Catapult</b>.-->
+                <!--</li>-->
+                <!--</ul>-->
+
+                <!--</div>-->
+            </div>
+
+
+            <div class="partners innerContent odd">
+                <div class="title">Partners</div>
+            </div>
+
+            <div class="news innerContent even">
+                <div class="title">News</div>
+            </div>
+
+            <div class="contact innerContent odd">
+                <div class="title">Lets Make a Change</div>
+                <div class="innerContainer">
+                    <div class="fullText large">
+                        <div class="large">Richard Ren</div>
+                        <br>
+                        President and Founder<br>
+                        e: richard.ren@mail.utoronto.ca<br>
+                        m: (416)-823-2878<br>
+                        <br>
+
+                        <div class="largetop">General Inquiry</div>
+                        <br>
+                        e: EarlyFutureOrg@gmail.com
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="bottomText">Website by Spencer Canner</div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
