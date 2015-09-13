@@ -77,7 +77,7 @@
         }
 
         .large {
-            font-size: 30px;
+            font-size: 30px !important;
         }
 
         .largetop {
@@ -85,7 +85,7 @@
         }
 
         .top {
-            background: url("https://newevolutiondesigns.com/images/freebies/black-white-background-3.jpg") no-repeat center center fixed;
+            background: url("top-background.jpg") no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             width: 100vw;
@@ -104,6 +104,7 @@
         .imageContainer {
             position: relative;
             text-align: center;
+            background-color: white;
             width: 100%;
         }
 
@@ -144,19 +145,40 @@
             height: 500px;
         }
 
+        .innerFull {
+            position: relative;
+            height: 600px;
+        }
+
         .bold {
             font-size: 45px;
-            color: rgb(19, 137, 162);
+            color: black;
+            border-bottom: 2px solid rgb(27, 220, 255);
         }
 
         .odd {
-            background-color:rgba(219, 219, 219, 0.3)        }
+            background-color: rgba(103, 103, 103, 0.75);
+        }
 
         .even {
-            background-color:rgba(219, 219, 219, 0.3)        }
+            background-color: rgba(155, 155, 155, 0.75);
+        }
 
         .container {
             width: 100%;
+        }
+
+        .mainTitle {
+            float: left;
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            font-size: 70px;
+            width: 100%;
+            vertical-align: middle;
+            text-align: left;
+            position: relative;
+            display: block;
+            margin-bottom: 5%;
         }
 
         .title {
@@ -186,7 +208,7 @@
             max-width: 100%;
         }
 
-        .imageOverlay{
+        .imageOverlay {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -213,7 +235,8 @@
 
         .lineHolder {
             width: 100%;
-            height: 200px;
+            border-top: 6px solid black;
+            height: 329px;
             position: relative;
         }
 
@@ -223,18 +246,22 @@
             float: left;
             height: 100%;
             text-align: center;
-
+            border-right: solid 6px black;
         }
 
-        .lineRight{
-            width: 40%;
+        .lineRight {
+            width: 49.5%;
             float: right;
             position: relative;
             height: 100%;
         }
 
         .splitText {
-
+            width: 100%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
         }
 
         .aboutImage {
@@ -277,6 +304,7 @@
             display: inline-block;
             vertical-align: middle;
             width: 100%;
+            top: 10%;
             margin-top: 2%;
             margin-bottom: 2%;
         }
@@ -292,7 +320,6 @@
         .bottom {
             text-align: center;
             width: 100%;
-            background-color: #b1b1b1;
             height: 80px;
         }
 
@@ -324,51 +351,36 @@
             var scroll = $(window).scrollTop();
             if (scroll <= start) {
                 if (selectedTab != "top") {
-                    selectedTab = "top"
+                    selectedTab = "top";
                     $(".tab").removeClass("selected");
                 }
 
-            }
-            else if (scroll > start && scroll <= start + divHeight) {
-                if (selectedTab != "about") {
-                    selectedTab = "about";
-                    $(".tab").removeClass("selected");
-                    $("#about").addClass("selected")
-                }
-            }
-            else if (scroll > start + divHeight && scroll <= start + 2 * divHeight) {
-                if (selectedTab != "vision") {
-                    selectedTab = "vision";
-                    $(".tab").removeClass("selected");
-                    $("#vision").addClass("selected")
-                }
             }
             else if (scroll > start + 2 * divHeight && scroll <= start + 3 * divHeight) {
                 if (selectedTab != "catapult") {
                     selectedTab = "catapult";
                     $(".tab").removeClass("selected");
-                    $("#catapult").addClass("selected")
+                    $("#what").addClass("selected")
                 }
             }
             else if (scroll > start + 3 * divHeight && scroll <= start + 4 * divHeight) {
                 if (selectedTab != "partners") {
                     selectedTab = "partners";
                     $(".tab").removeClass("selected");
-                    $("#partners").addClass("selected")
+                    $("#why").addClass("selected")
                 }
             }
             else if (scroll > start + 4 * divHeight && scroll <= start + 5 * divHeight) {
                 if (selectedTab != "news") {
                     selectedTab = "news";
                     $(".tab").removeClass("selected");
-                    $("#news").addClass("selected")
+                    $("#contact").addClass("selected")
                 }
             }
-            else if (scroll > start + 5 * divHeight && scroll <= start + 6 * divHeight) {
-                if (selectedTab != "contact") {
-                    selectedTab = "contact";
+            else {
+                if (selectedTab != "top") {
+                    selectedTab = "top";
                     $(".tab").removeClass("selected");
-                    $("#contact").addClass("selected")
                 }
             }
         }
@@ -382,11 +394,8 @@
     <div class="topBar">
         <div class="logo">Early Future</div>
         <div class="tab" id="contact">Contact Us</div>
-        <div class="tab" id="news">News</div>
-        <div class="tab" id="partners">Partners</div>
-        <div class="tab" id="catapult">Catapult</div>
-        <div class="tab" id="vision">Vision</div>
-        <div class="tab" id="about">About Us</div>
+        <div class="tab" id="why">Why Get Involved</div>
+        <div class="tab" id="what">What We Do</div>
     </div>
     <!--top-->
     <div class="top">
@@ -395,13 +404,6 @@
                 <div class="description">
                     Let's <br> #EmpowerTheChange
                 </div>
-                <!--<div class="description">-->
-                <!--Early Future is a non-profit organization that partners with companies-->
-                <!--to bring about designed office visits to underprivileged youth.-->
-                <!--</div>-->
-                <!--<br>-->
-
-                <!--<div class="button">Why Get Involved With Early Future...</div>-->
             </div>
         </div>
     </div>
@@ -409,36 +411,35 @@
     <div class="container">
         <div class="content">
             <div class="about innerContent even">
-                <div class="title centerAlign verticalCenter">Underprivileged aren't succeed in education and beyond
+                <div class="mainTitle centerAlign verticalCenter">Underprivileged Youth Aren't Succeeding in Education
+                    and Beyond
                 </div>
-                <!--<div class="innerContainer">-->
-
-                <!--<div class="fullText centerAlign">We want underprivileged to succeed in education and beyond</div>-->
-
-                <!--&lt;!&ndash;<iframe src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211073&authkey=AG4VzXWWJ4VIYpM" class="aboutImage" scrolling="no"></iframe>&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<img class="aboutImage" src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211073&authkey=AG4VzXWWJ4VIYpM">&ndash;&gt;&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<div class="halfText leftAlign">When I was accepted into the University of Toronto Faculty of&ndash;&gt;-->
-                <!--&lt;!&ndash;Engineering,&ndash;&gt;-->
-                <!--&lt;!&ndash;I was at a loss for words. Looking back at where I came from; the poverty and the crime&ndash;&gt;-->
-                <!--&lt;!&ndash;really do impact the path some youth take. From a young age, I always told myself that one&ndash;&gt;-->
-                <!--&lt;!&ndash;day I am going to help change this toxic cycle of low-income youth not reaching their full&ndash;&gt;-->
-                <!--&lt;!&ndash;potential.&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--</div>-->
-
             </div>
 
-            <div class="imageContainer">
-                <div class="imageOverlay"><div class="imageOverlayText"> Why? </div>
-                    <img class="downArrow" src="https://cdn3.iconfinder.com/data/icons/lightly-icons/30/652778-double-chevron-down-480.png">
+            <div class="why innerFull odd">
+                <div class="imageContainer">
+                    <div class="imageOverlay">
+                        <div class="imageOverlayText"> Why?</div>
+                        <img class="downArrow"
+                             src="double-chevron-down.png">
+                    </div>
+                    <img src='people.jpg' border='0' alt="people" />
+
+                    <!--<img src="http://postimg.org/image/4neek466f/" class="wideImage">-->
                 </div>
-                <img src="people.jpg" class="wideImage">
+                <div class="lineHolder">
+                    <div class="lineLeft">
+                        <div class="splitText large"> Lack of Advocates (eg. Positive Academic Role Model)</div>
+                    </div>
+                    <div class="lineRight">
+                        <div class="splitText large"> Lack of Knowledge of Beneficial Practices (eg. Knowing to Network
+                            in University)
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="lineHolder">
-                <div class="lineLeft"><div class="splitText"> Lack of Advocates (eg. Positive Academic Role Model)</div></div>
-                <div class="lineRight"><div class="splitText"> Lack of Knowledge of Beneficial Practices (eg. Knowing to Network in University)</div></div> </div>
-            <div class="vision innerContent odd">
+
+            <div class="vision innerContent even">
                 <div class="title">What We Do</div>
                 <div class="innerContainer">
                     <div class="fullText centerAlign largetop"> We partner with companies in varying industries to
@@ -461,80 +462,34 @@
                 </div>
             </div>
 
-            <div class="catapult innerContent even">
+            <div class="catapult innerContent odd">
                 <div class="title">Why Get Involved</div>
                 <div class="fullText centerAlign largetop">
                     46% of high school graduates from the lower income quartile pursue a higher education<br>
                     + <br>
-                    1 in 7 graduates fit this mold <br>
+                    1 in 7 graduates come from this quartile<br>
                     = <br>
                     <b class="bold">Significant Problem</b>
                 </div>
-
-                <!--<img class="catapultImage" src="catapult.jpg">-->
-                <!--<iframe src="https://onedrive.live.com/embed?cid=B0BEA9D39AF6B760&resid=B0BEA9D39AF6B760%211075&authkey=AN8AOHM535SubQA"-->
-                <!--class="catapultImage" scrolling="no"></iframe>-->
-
-                <!--<div class="halfText leftAlign">Provide youth with: <br>-->
-                <!--<ul>-->
-                <!--<li>role models</li>-->
-                <!--<li>key industry insights</li>-->
-                <!--<li>job profiles, interpersonal skills</li>-->
-                <!--<li>connections</li>-->
-                <!--<li>glimpse possible career paths</li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--<br>-->
-
-                <!--<div class="fullText leftAlign">-->
-                <!--<ul>-->
-                <!--<li>Your company will host a certain amount of youth at your chosen-->
-                <!--office.-->
-                <!--This visit will be designed by your company and our executives to empower and educate-->
-                <!--the youth.-->
-                <!--</li>-->
-                <!--<li>The youth will be launched forward with the tools to be successful-->
-                <!--and-->
-                <!--most importantly, a belief that they can achieve greatness with an education; this is-->
-                <!--why we-->
-                <!--used the-->
-                <!--name <b>Catapult</b>.-->
-                <!--</li>-->
-                <!--</ul>-->
-
-                <!--</div>-->
             </div>
 
 
-            <div class="partners innerContent odd">
-                <div class="title">Partners</div>
-            </div>
-
-            <div class="news innerContent even">
-                <div class="title">News</div>
-            </div>
-
-            <div class="contact innerContent odd">
+            <div class="contact innerContent even">
                 <div class="title">Lets Make a Change</div>
                 <div class="innerContainer">
-                    <div class="fullText large">
-                        <div class="large">Richard Ren</div>
-                        <br>
-                        President and Founder<br>
-                        e: richard.ren@mail.utoronto.ca<br>
-                        m: (416)-823-2878<br>
-                        <br>
-
-                        <div class="largetop">General Inquiry</div>
-                        <br>
-                        e: EarlyFutureOrg@gmail.com
-
+                    <div class="fullText">
+                        <div class="largetop">Richard Ren
+                            <br>
+                            President and Founder<br>
+                            e: EarlyFutureOrg@gmail.com<br>
+                            m: (416)-823-2878<br>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bottom">
+    <div class="bottom odd">
         <div class="bottomText">Website by Spencer Canner</div>
     </div>
 
